@@ -1,4 +1,4 @@
-package com.iliass.projects.songofzedayback.songofzedayback;
+package com.iliass.projects.songofzedayback;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
