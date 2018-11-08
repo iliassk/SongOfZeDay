@@ -1,0 +1,15 @@
+server:
+  port: 9999
+  error:
+    whitelabel:
+      enabled: false
+
+spring:
+  security:
+    user:
+      name: user
+      password: pass
+
+logging:
+  level:
+    org.springframework.web: DEBUG
