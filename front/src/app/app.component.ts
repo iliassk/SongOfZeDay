@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { AppService } from "./app.service";
 
 @Component({
@@ -6,11 +6,19 @@ import { AppService } from "./app.service";
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
+
+  private title: string;
 
   constructor(
     private appService: AppService
   ) {}
-  title = 'songOfZeDay-front';
-  this.appService.pingSignal().subscribe()
+
+  ngOnInit() {
+    this.appService.pingSignal().subscribe(data => {
+      console.log(data);
+      this.title = data;
+    })
+  }
+
 }

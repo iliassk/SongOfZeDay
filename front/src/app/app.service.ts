@@ -17,6 +17,6 @@ export class AppService {
 
   pingSignal(): Observable<string> {
 
-    return this.httpClient.get(this.endpoint);
+    return this.httpClient.get<string>(this.endpoint);
   }
 }
