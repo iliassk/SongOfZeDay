@@ -15,8 +15,8 @@ export class AppService {
     private httpClient: HttpClient
   ) { }
 
-  pingSignal(): Observable<string> {
+  pingSignal() {
 
-    return this.httpClient.get<string>(this.endpoint);
+    return this.httpClient.get(this.endpoint);
   }
 }
