@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class HelloController {
 
-    @GetMapping(value = "/hello", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/hello")
     public ResponseEntity<String> getSignal() {
-        return new ResponseEntity<>("<h1>I'm ALIVE !</h1>", HttpStatus.OK);
+        return new ResponseEntity<>("I'm ALIVE", HttpStatus.OK);
     }
 }
