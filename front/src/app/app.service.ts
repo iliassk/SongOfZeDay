@@ -9,13 +9,13 @@ import { map, catchError } from "rxjs/operators";
 export class AppService {
 
   private API_URL = "http://localhost:9999"
-  private endpoint = this.API_URL + "/hello";
+  private endpoint = this.API_URL + "/ping";
 
   constructor(
     private httpClient: HttpClient
   ) { }
 
-  pingSignal() {
+  pingSignal(): Observable<Object> {
 
     return this.httpClient.get(this.endpoint);
   }

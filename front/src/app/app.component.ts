@@ -16,7 +16,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.appService.pingSignal().subscribe(data => {
-      console.log(data);
+      this.title = data["response"];
     })
   }
 
