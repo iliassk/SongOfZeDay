@@ -9,8 +9,8 @@ import { FormControl, FormGroup } from "@angular/forms";
 export class LoginComponent implements OnInit {
 
   loginForm = new FormGroup({
-    login: new FormControl(),
-    password: new FormControl()
+    login: new FormControl(""),
+    password: new FormControl("")
   });
 
 
@@ -18,6 +18,10 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
 
+  }
+
+  onSubmit() {
+    console.warn(this.loginForm.value);
   }
 
 }
