@@ -21,6 +21,6 @@ public class PingController {
     @GetMapping(value = "/ping", produces = MediaType.APPLICATION_JSON_VALUE)
     public Map getSignal() {
         logger.info("Pinging the backend");
-        return Collections.singletonMap("response", "I'm ALIVE");
+        return Collections.singletonMap("response", "I'm ALIVEeeeee");
     }
 }
