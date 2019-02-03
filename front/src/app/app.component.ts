@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import { AppService } from "./app.service";
 
 @Component({
   selector: 'app-root',
@@ -8,16 +7,10 @@ import { AppService } from "./app.service";
 })
 export class AppComponent implements OnInit {
 
-  private title: string;
-
   constructor(
-    private appService: AppService
   ) {}
 
   ngOnInit() {
-    this.appService.pingSignal().subscribe(data => {
-      this.title = data["response"];
-    })
   }
 
 }

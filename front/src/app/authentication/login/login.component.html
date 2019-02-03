@@ -2,18 +2,23 @@
 
   <div>
     <label>Login</label>
-    <input type="text" formControlName="login">
+    <input type="text" [required]="true" formControlName="login">
   </div>
 
   <div>
     <label>Password</label>
-    <input type="password" formControlName="password">
+    <input type="password" [required]="true" formControlName="password">
   </div>
 
   <button type="submit" [disabled]="!loginForm.valid">LogIn</button>
 
   <p>
+    Form validity : {{ loginForm.valid }}
+  </p>
+  <p>
     Login: {{ loginForm.value.login }}
+  </p>
+  <p>
     Password: {{ loginForm.value.password }}
   </p>
 

@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, FormBuilder } from "@angular/forms";
+import {Component, OnInit} from '@angular/core';
+import {FormGroup, FormBuilder} from "@angular/forms";
+import {AuthenticationService} from "../authentication.service";
+import {finalize} from "rxjs/operators";
+
 
 @Component({
   selector: 'app-login',
@@ -8,24 +11,31 @@ import { FormControl, FormGroup, FormBuilder } from "@angular/forms";
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private fb: FormBuilder) {}
+  private loginForm: FormGroup;
+  private hasLoggedIn: boolean;
 
-  loginForm = this.fb.group({
-    login: [""],
-    password: [""]
-  })
-
-  // loginForm = new FormGroup({
-  //   login: new FormControl(""),
-  //   password: new FormControl("")
-  // });
+  constructor(private fb: FormBuilder, private authService: AuthenticationService) {
+    this.loginForm = this.fb.group({
+      login: "",
+      password: ""
+    });
+  }
 
   ngOnInit() {
 
   }
 
   onSubmit() {
-    console.warn(this.loginForm.value);
+    this.authService.login(this.loginForm.value)
+      .pipe(
+        finalize(() => {
+          console.info(this.hasLoggedIn);
+          this.loginForm.reset();
+        })
+      )
+      .subscribe(data => {
+        this.hasLoggedIn = data;
+      });
   }
 
 }
